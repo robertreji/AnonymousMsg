@@ -6,7 +6,7 @@ export async function connectdb(): Promise<void> {
     if (!dburl) {
         throw new Error("DB_URL environment variable is missing");
     }
-    try {
+    try { 
         if (mongoose.connection.readyState === 1) return;
         const connection = await mongoose.connect(dburl);
         console.log("successfully connected with id:", connection.connection.host);
