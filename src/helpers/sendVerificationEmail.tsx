@@ -12,7 +12,7 @@ export async function sendVerificationEmail(
       from: "Acme <onboarding@resend.dev>",
       to: email || "robertreji2005@gmail.com", 
       subject: "Verification anonymousmsg",
-      react: <SendEmailTemplate firstName="robert"/>,
+      react: <SendEmailTemplate username={username || "friend"}  otp={ verifycode ||"57394"}/>,
     });
 
     if (error) {
