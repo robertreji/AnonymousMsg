@@ -6,8 +6,8 @@ import bcrypt from "bcryptjs";
 
 export async function POST(Request:Request) {
   try {
-        const {username,email,password} = await Request.json()
-        if(!(username && email && password))throw new ApiError("all field are required",402,false)
+        const {username,email,Password} = await Request.json()
+        if(!(username && email && Password))throw new ApiError("all field are required",402,false)
       
         const existingUserVerifiedByUser  = await userModel.findOne(
             {
@@ -33,12 +33,12 @@ export async function POST(Request:Request) {
             {
                 return Response.json({msg:"user alredy exists with this email id",sucess : false},{status:401})
             }
-            existingUserByEmail.password = await bcrypt.hash(password,10)
+            existingUserByEmail.password = await bcrypt.hash(Password,10)
             existingUserByEmail.verifyCode = verifyCode
             existingUserByEmail.verifyCodeExpiry = new Date(Date.now()+3600000)
             await existingUserByEmail.save()
         }else{
-            const hashedPass = await bcrypt.hash(password,10)
+            const hashedPass = await bcrypt.hash(Password,10)
             const expiryDate = new Date()
             expiryDate.setHours(expiryDate.getHours()+1)
             const user = await  userModel.create({

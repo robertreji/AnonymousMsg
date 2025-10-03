@@ -27,7 +27,7 @@ export async function GET(req:Request){
             isVerified:true
         })
         if(useralreadyExists){
-            throw new ApiError("username already taken ",400,false)
+            throw new ApiError("username already taken ",200,false)
         }
 
         return Response.json({message:"username available"},{status:200})
