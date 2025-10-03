@@ -22,7 +22,7 @@ export async function POST(req:Request) {
                 await user.save()
                  return Response.json({
                     success:true,
-                    message :"otp verified successfullly]"},
+                    message :"otp verified successfullly"},
                     {status:200})
             }else{
                 return Response.json({

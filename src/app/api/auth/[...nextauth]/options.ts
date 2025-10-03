@@ -12,17 +12,17 @@ export const authOPtions :NextAuthOptions={
             id:"credentials",
             name:"Credentials",
             credentials:{
-                email: { label: "emial", type: "emial", placeholder: "jsmith@gamil.com" },
+                username: { label: "username", type: "text", placeholder: "username" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials):Promise<any>{
                 await connectdb()
                 try {
                   const user =  await userModel.findOne({
-                        username:credentials?.email
+                        username:credentials?.username
                     })
                     if(!user?.isVerified)throw new ApiError("please verify your account  before login ",401,false)
-                    if(!user)throw new ApiError("user not found with this email ",401,false)
+                    if(!user)throw new ApiError("user not found",401,false)
 
                     const isPassCorerct =await bcrypt.compare(credentials?.password || "fuigyr",user.password)
                     if(isPassCorerct){
