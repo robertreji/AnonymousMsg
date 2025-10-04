@@ -6,6 +6,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 import AuthProvider from "@/context/authProvider";
+import Navbar from "@/components/navbar";
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -24,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
+        
         <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar/>
         {children}
       </body>
       </AuthProvider>
