@@ -26,21 +26,22 @@ import axios from "axios"
 
 type messageProps={
     message:message,
-    onMsgDelete :(msgId:Types.ObjectId)=>void
+    onMsgDelete :(msgId:string)=>void
 }
 
 function MsgCard({message,onMsgDelete}:messageProps) {
 
     async function handleMsgDelete()
     {
+        const MsgId= String(message._id)
         await axios.delete(`/api/delete-msg?msgId=${message._id}`)
-        onMsgDelete(message._id as Types.ObjectId)
+        onMsgDelete(MsgId)
     }
 
   return (
     <Card>
         <CardHeader>
-            <CardTitle>Card Title</CardTitle>
+            <CardTitle>{message.content}</CardTitle>
             <AlertDialog>
                 <AlertDialogTrigger asChild>
                     <Button variant="outline">Delete msg</Button>
