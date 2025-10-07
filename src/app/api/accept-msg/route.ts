@@ -6,6 +6,7 @@ import userModel from "@/models/user";
 
 export async function POST(req:Request)
 {
+      await connectdb()
     const session = await  getServerSession(authOPtions)
 
     if(!session || !session.user)
@@ -18,7 +19,7 @@ export async function POST(req:Request)
 
     const user = session.user
 
-   await connectdb()
+ 
 
    try {
     const {isacceptingmsg} = await req.json()
