@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { render } from "@react-email/render";
 import { SendEmailTemplate } from "../../emails/sendverificationcodeTemplate";
 
@@ -44,7 +44,8 @@ export async function sendVerificationEmail(
       console.error("SendGrid error:", response.data);
       return { msg: "Failed to send email", success: false };
     }
-  } catch (error: any) {
+  } catch (error) {
+    if(error instanceof AxiosError)
     console.error("Error sending email:", error.response?.data || error.message);
     return { msg: "An error occurred while sending email", success: false };
   }
