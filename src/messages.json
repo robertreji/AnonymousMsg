@@ -1,0 +1,72 @@
+[
+  {
+    "message": {
+      "title": "Morning Vibes",
+      "content": "Just grabbed a coffee, feeling refreshed!",
+      "received": "2 minutes ago"
+    }
+  },
+  {
+    "message": {
+      "title": "AI Buzz",
+      "content": "Did you check out that new AI tool everyone’s talking about?",
+      "received": "15 minutes ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Weekend Feels",
+      "content": "I can’t believe it’s already Friday!",
+      "received": "1 hour ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Connectivity Issues",
+      "content": "My Wi-Fi’s acting up again 😩",
+      "received": "2 hours ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Book Review",
+      "content": "Finally finished reading that book you recommended.",
+      "received": "5 hours ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Evening Plan",
+      "content": "Let’s go for a walk this evening?",
+      "received": "8 hours ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Movie Talk",
+      "content": "That new movie was surprisingly good!",
+      "received": "14 hours ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Morning Greeting",
+      "content": "Good morning! Hope your day starts great ☀️",
+      "received": "1 day ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Work Update",
+      "content": "Did you get a chance to review the document I sent?",
+      "received": "2 days ago"
+    }
+  },
+  {
+    "message": {
+      "title": "Taking a Break",
+      "content": "I might take a short break from social media.",
+      "received": "3 days ago"
+    }
+  }
+]

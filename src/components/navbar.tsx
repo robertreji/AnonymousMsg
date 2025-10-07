@@ -18,9 +18,17 @@ function Navbar() {
             <span className="mr-4">
               Welcome, {user.username || user.email}
             </span>
-            <Button onClick={() => signOut()} className="w-full md:w-auto bg-slate-100 text-black" variant='outline'>
-              Logout
-            </Button>
+             <div className='space-x-4'>
+              <Link href={"/"}>
+                <Button className="w-full md:w-auto bg-slate-100 text-black" variant='outline'>Home </Button>
+              </Link>
+              <Link href={"/dashboard"}>
+                <Button className="w-full md:w-auto bg-slate-100 text-black" variant='outline'>dashboard</Button>
+              </Link>
+              <Button onClick={() => signOut()} className="w-full md:w-auto bg-slate-100 text-black" variant='outline'>
+                Logout
+              </Button>
+              </div>
           </>
         ) : (
           <Link href="/sign-in">

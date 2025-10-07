@@ -7,7 +7,7 @@ export async  function middleware(request: NextRequest) {
     const token = await getToken({req:request})
 
     if(token && (
-        request.nextUrl.pathname === "/" ||
+        // request.nextUrl.pathname === "/" ||
         request.nextUrl.pathname.startsWith("/sign-in") ||
         request.nextUrl.pathname.startsWith("/sign-up") ||
         request.nextUrl.pathname.startsWith("/verify") 
