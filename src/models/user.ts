@@ -12,7 +12,7 @@ export interface user extends Document{
     verifyCode : string,
     verifyCodeExpiry : Date,
     isAcceptingMsg : boolean,
-    messages: message[],
+    messages?: message[],
     isVerified : boolean
 }
 

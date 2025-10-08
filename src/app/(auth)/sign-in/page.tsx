@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { verifyCode } from "@/schemas/verifySchema"
 import { signInSchema } from "@/schemas/signInschema"
 import { signIn } from "next-auth/react"
+import Link from "next/link"
 function SignUpPage() {
 
     const [isSubmitting,setIsSubmitting] = useState(false)
@@ -66,7 +67,7 @@ function SignUpPage() {
                                 <FormItem>
                                 <FormLabel>Enter username</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="username" {...field} />
+                                    <Input autoComplete="username" placeholder="username" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -79,7 +80,7 @@ function SignUpPage() {
                                 <FormItem>
                                 <FormLabel>Enter your password </FormLabel>
                                 <FormControl>
-                                    <Input  type="password" placeholder="********" {...field} />
+                                    <Input autoComplete="current-password" type="password" placeholder="********" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -97,6 +98,8 @@ function SignUpPage() {
                                 ):("signIn")
                             }
                         </Button>
+                        <p className="text-gray-400 font-light">If not already  signedUp , please sighnUp!</p>
+                        <Link href={"/sign-up"} className="text-sm font-semibold text-black">signUp</Link>
                 </form>
             </FormProvider>
         </div>

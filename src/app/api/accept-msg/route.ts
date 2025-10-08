@@ -1,13 +1,13 @@
 import { connectdb } from "@/lib/dbconnect";
 import { getServerSession } from "next-auth";
-import { authOPtions } from "../auth/[...nextauth]/options";
+import { authOptions } from "../auth/[...nextauth]/options";
 import { ApiError } from "@/lib/error";
 import userModel from "@/models/user";
 
 export async function POST(req:Request)
 {
       await connectdb()
-    const session = await  getServerSession(authOPtions)
+    const session = await  getServerSession(authOptions)
 
     if(!session || !session.user)
     {
@@ -51,7 +51,7 @@ export async function POST(req:Request)
 }
 export async function GET(req:Request)
 {
-    const session = await  getServerSession(authOPtions)
+    const session = await  getServerSession(authOptions)
 
     if(!session || !session.user)
     {

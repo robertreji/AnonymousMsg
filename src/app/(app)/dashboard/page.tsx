@@ -24,7 +24,6 @@ function Page() {
 
   const {data:session} = useSession()
 
-
   const form = useForm(
     {
       resolver:zodResolver(acceptingMsgSchema)
@@ -89,6 +88,7 @@ function Page() {
         console.log("error : ",error)
     }
   }
+
 
   useEffect(()=>{
 

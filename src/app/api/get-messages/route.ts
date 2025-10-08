@@ -1,6 +1,6 @@
 import { connectdb } from "@/lib/dbconnect";
 import { getServerSession } from "next-auth";
-import { authOPtions } from "../auth/[...nextauth]/options";
+import { authOptions } from "../auth/[...nextauth]/options";
 import { ApiError } from "@/lib/error";
 import userModel from "@/models/user";
 import mongoose from "mongoose";
@@ -8,7 +8,7 @@ import mongoose from "mongoose";
 export async function GET(req:Request)
 {
     await connectdb()
-    const session = await  getServerSession(authOPtions)
+    const session = await  getServerSession(authOptions)
 
     if(!session || !session.user)
     {
@@ -17,9 +17,8 @@ export async function GET(req:Request)
             message :"user not authenticated"},
             {status:401})
     }
-
     const userId = new mongoose.Types.ObjectId(session.user._id) 
-
+console.log("userId:",userId)
 
 try {
     const user =  await userModel.aggregate([
@@ -28,7 +27,7 @@ try {
         {$sort: {'messages.createdAt': -1}},
         {$group: {_id:'$_id',messages: {$push: '$messages'}}}]
     )
-    if(!user || user.length === 0) throw new ApiError("unable to retrive the messages ",402,false)
+    if(!user || user.length === 0) throw new ApiError("unable to retrive the messageees",402,false)
          
     return Response.json(
         {success:true, 
