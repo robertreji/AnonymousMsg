@@ -2,12 +2,13 @@ import { connectdb } from "@/lib/dbconnect"
 import { ApiError } from "@/lib/error"
 import userModel from "@/models/user"
 import { getServerSession } from "next-auth"
-import { authOPtions } from "../auth/[...nextauth]/options"
+import { authOptions } from "../auth/[...nextauth]/options"
 
 export async function DELETE(req: Request) {
   try {
     await connectdb()
-    const session = await getServerSession(authOPtions)
+    const session = await getServerSession(authOptions
+    )
     if(!session || !session.user) {
       return Response.json({ success:false, message:"user not authenticated" }, { status:401 })
     }

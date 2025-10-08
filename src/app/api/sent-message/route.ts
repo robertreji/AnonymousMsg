@@ -1,9 +1,6 @@
 import { connectdb } from "@/lib/dbconnect";
-import { getServerSession } from "next-auth";
-import { authOPtions } from "../auth/[...nextauth]/options";
 import { ApiError } from "@/lib/error";
 import userModel, { message } from "@/models/user";
-import mongoose from "mongoose";
 
 export async function POST(req:Request)
 {
@@ -29,6 +26,9 @@ try {
     if(!user.isAcceptingMsg) throw new ApiError("user is not accepting messaeges ",400,false)
     
     const newMsg = {content:message,createdAt:new Date()}
+   if (!user.messages) {
+        user.messages = [];
+    }
     user.messages.push(newMsg as message)
     await user.save()
     
